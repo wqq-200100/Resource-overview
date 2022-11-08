@@ -5,22 +5,65 @@
     <div class="sharedControl-chart">
       <div class="pie">
         <div class="pri">
-          <div class="pri-left"></div>
-          <div class="pri-right"></div>
+
+          <div class="pri-left" v-for="item in circleData">
+            <div class="system-title">{{ item.title }}</div>
+            <div class="pri-box">
+              <myCircle :color="item.color"
+                        :total="item.total"
+                        :value="item.value"
+                        :sum="item.sum"
+                        class="myCircle"/>
+              <div class="box-center">
+                <div class="play">运行中 <span>{{ item.value }}</span></div>
+                <div class="size">磁盘大小 <span>{{ item.size }}TB</span></div>
+              </div>
+              <div class="box-right">
+                <div class="stop">已停止 <span style="color: red">{{ item.stop }}</span></div>
+                <div class="mirrorImage">镜像 <span>{{ item.mirrorImage }}个</span></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="storage"></div>
+        <div class="storage">
+          <div class="system-title">存储</div>
+          <div style="
+        display: flex;
+        justify-content: space-between;">
+            <yuan/>
+            <yuan/>
+          </div>
+        </div>
       </div>
 
       <div class="foldLine">
-        <column/>
+        <foldLine/>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import column from "../../global/column.vue";
+import myCircle from "../../global/circle.vue";
+import myColumn from "../../global/column.vue";
+import yuan from "../../global/yuan.vue";
 
+import foldLine from "./foldLine.vue";
+
+
+const circleData = $ref([
+  {title: '云服务器ESC', color: 'yellow', total: 99, value: 99, sum: 99, stop: 0, size: 23, mirrorImage: 182},
+  {title: '裸金属服务器', color: 'orange', total: 200, value: 130, sum: 200, stop: 0, size: 0, mirrorImage: 0},
+])
+
+const datas1 = $ref([
+  {name: "SSD存储", value: "22"},
+  {name: "分布式存储", value: "0"},
+])
+const datas2 = $ref([
+  {name: "FC存储", value: "33"},
+  {name: "视频云存储", value: "12"},
+])
 
 
 </script>
@@ -44,17 +87,30 @@ import column from "../../global/column.vue";
       .pri {
         display: flex;
         justify-content: space-around;
+        margin-top: 10px;
 
-        .pri-left {
+        .pri-left, .pri-right {
           width: 49%;
           height: 185px;
           border: 1px solid rgb(51, 102, 140);
         }
 
-        .pri-right {
-          width: 49%;
-          height: 185px;
-          border: 1px solid rgb(51, 102, 140);
+        .pri-box {
+          width: 100%;
+          height: 130px;
+          display: flex;
+          line-height: 60px;
+          justify-content: space-around;
+          align-items: center;
+
+          span {
+            color: orange;
+          }
+
+          .myCircle {
+            width: 150px;
+            height: 150px;
+          }
         }
       }
 
@@ -63,11 +119,16 @@ import column from "../../global/column.vue";
         height: 130px;
         margin: 10px auto;
         border: 1px solid rgb(51, 102, 140);
+
+        .aa {
+          width: 150px;
+        }
       }
     }
 
     .foldLine {
       width: 49%;
+      height: 99%;
       border: 1px solid rgb(51, 102, 140);
     }
   }

@@ -5,6 +5,9 @@ body{
   color: #fff;
 }
 
+/*去除滚动条*/
+::-webkit-scrollbar {display: none; /* Chrome Safari */}
+
 .label-title {
   color: #fff;
   font-weight: 400;
@@ -25,4 +28,21 @@ body{
    transform: translateY(-50%);
    left: -12px;
  }
+}
+
+.system-title{
+  font-size: 14px;
+  position: relative;
+  margin: 10px 20px;
+  &:after{
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: rgb(6, 255, 255);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -10px;
+  }
 }
