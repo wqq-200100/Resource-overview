@@ -4,8 +4,8 @@
 
     <div class="sharedControl-chart">
       <div class="pie">
+        <!--服务器-->
         <div class="pri">
-
           <div class="pri-left" v-for="item in circleData">
             <div class="system-title">{{ item.title }}</div>
             <div class="pri-box">
@@ -25,19 +25,18 @@
             </div>
           </div>
         </div>
+        <!--存储-->
         <div class="storage">
           <div class="system-title">存储</div>
-          <div style="
-        display: flex;
-        justify-content: space-between;">
-            <yuan/>
-            <yuan/>
+          <div style="display: flex;justify-content: space-between;">
+            <myStorage :category="category1" :total="total1"/>
+            <myStorage :category="category2" :total="total2"/>
           </div>
         </div>
       </div>
-
+      <!--利用率&峰值-->
       <div class="foldLine">
-        <foldLine/>
+        <foldLine style="margin-left: 40px"/>
       </div>
     </div>
   </div>
@@ -46,8 +45,7 @@
 <script setup>
 import myCircle from "../../global/circle.vue";
 import myColumn from "../../global/column.vue";
-import yuan from "../../global/yuan.vue";
-
+import myStorage from "../../global/myStorage.vue";
 import foldLine from "./foldLine.vue";
 
 
@@ -56,14 +54,17 @@ const circleData = $ref([
   {title: '裸金属服务器', color: 'orange', total: 200, value: 130, sum: 200, stop: 0, size: 0, mirrorImage: 0},
 ])
 
-const datas1 = $ref([
+const category1 = $ref([
   {name: "SSD存储", value: "22"},
-  {name: "分布式存储", value: "0"},
+  {name: "分布式存储", value: "99"},
 ])
-const datas2 = $ref([
+const category2 = $ref([
   {name: "FC存储", value: "33"},
   {name: "视频云存储", value: "12"},
 ])
+
+const total1 = $ref(200)
+const total2 = $ref(150)
 
 
 </script>
@@ -79,7 +80,7 @@ const datas2 = $ref([
     width: 100%;
     height: 95%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 
     .pie {
       width: 49%;
@@ -128,8 +129,9 @@ const datas2 = $ref([
 
     .foldLine {
       width: 49%;
-      height: 99%;
+      height: 95%;
       border: 1px solid rgb(51, 102, 140);
+      margin-top: 11px;
     }
   }
 

@@ -44,11 +44,15 @@ import left from "./module/left.vue";
 
   .main-title {
     width: 300px;
-    border: 1px solid #999;
+    border: 1px solid rgb(51,102,140);
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 20px;
+
+    .title{
+      color: rgb(65,242,224);
+    }
 
     .image {
       width: 30px;

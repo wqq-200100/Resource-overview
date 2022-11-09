@@ -1,6 +1,6 @@
 <template>
 <!--利用率折线图-->
-  <div ref="myChartRef"  class="tubiao"></div>
+  <div ref="myChartRef"  class="tubiao" ></div>
 </template>
 
 <script setup >

@@ -10,11 +10,19 @@ import * as echarts from 'echarts'
 let myChart = null
 const myChartRef = $ref()
 
-const category = [
-  {name: 'SSD存储', value: 123},
-  {name: '分布式存储', value: 108},
-]; // 类别
-const total = 200; // 数据总数
+const props = defineProps({
+  category:[],
+  total:[]
+})
+
+// const category = [
+//   {name: 'SSD存储', value: 123},
+//   {name: '分布式存储', value: 108},
+// ]; // 类别
+
+const category = props.category
+
+const total = props.total; // 数据总数
 const a = ['20%', '40%', '60%', '80%', '100%'];
 var datas = [];
 category.forEach((value) => {

@@ -133,7 +133,7 @@ const tableData = [
 
 
       ::v-deep(.el-table tr) {
-        color: #fff;
+        color: rgb(148, 144, 144);
       }
 
       ::v-deep(.el-table) {

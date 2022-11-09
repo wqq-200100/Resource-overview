@@ -1,5 +1,10 @@
 <template>
-  <div class="header">部门资源概览</div>
+  <div class="header">
+    <dv-decoration8 style="width:500px;height:40px;"/>
+    <div>部门资源概览</div>
+    <dv-decoration8 :reverse="true" style="width:500px;height:40px;"/>
+  </div>
+
   <div class="box">
     <fromFlex/>
 
@@ -21,11 +26,20 @@ import sharedControl from "./components/sharedControl/sharedcControl.vue";
 .header {
   width: 100%;
   height: 75px;
-  border: 1px solid rgb(51,102,140);
+  border: 1px solid rgb(51, 102, 140);
   color: #fff;
   text-align: center;
-  font-size: 26px;
+  font-size: 35px;
+  font-weight: 500;
   line-height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(12, 35, 52);
+
+  div {
+    margin: 0 40px;
+  }
 }
 
 </style>
