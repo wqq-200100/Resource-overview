@@ -15,8 +15,8 @@
     </div>
     <div class="from">
       <div class="from-left">
-        <el-table :data="tableData" style="width: 100%">
-          <el-table-column prop="name" label="云服务商"/>
+        <el-table :data="tableData" style="width: 100%;height: 100%;">
+          <el-table-column fixed prop="name" label="云服务商" width="80px"/>
           <el-table-column prop="system" label="系统"/>
           <el-table-column prop="cpu" label="CPU(核)"/>
           <el-table-column prop="memory" label="内存（G）"/>
@@ -25,8 +25,8 @@
         </el-table>
       </div>
       <div class="from-right">
-        <el-table :data="tableData" style="width: 100%">
-          <el-table-column prop="name" label="云服务商"/>
+        <el-table :data="tableData" style="width: 100%;height: 100%;">
+          <el-table-column fixed prop="name" label="云服务商" width="80px"/>
           <el-table-column prop="system" label="系统"/>
           <el-table-column prop="cpu" label="CPU(核)"/>
           <el-table-column prop="memory" label="内存（G）"/>
@@ -84,14 +84,21 @@ const tableData = [
     storage: '2841',
     time: '2020/1/9'
   },
+  {
+    name: '新华三云',
+    system: '成都市公车网系统',
+    cpu: '40',
+    memory: '919',
+    storage: '2841',
+    time: '2020/1/9'
+  },
 ]
 </script>
 
 <style scoped lang="scss">
 .systemTable {
   width: 100%;
-  height: 223px;
-  margin-top: 8px;
+  height: 330px;
   border: 1px solid rgb(51, 102, 140);
 
   .tableHead {
@@ -117,8 +124,8 @@ const tableData = [
 
     .from-left, .from-right {
       width: 49%;
-      height: 190px;
-      margin-top: 3px;
+      height: 277px;
+      margin-top: 10px;
       border: 1px solid rgb(51, 102, 140);
       overflow: scroll;
       overflow-x: hidden;

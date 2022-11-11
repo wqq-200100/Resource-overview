@@ -42,4 +42,5 @@ import sharedControl from "./components/sharedControl/sharedcControl.vue";
   }
 }
 
+
 </style>
